@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rnd_quote=$(python ./get_random_quote.py)
+# echo $rnd_quote
+if [ $XDG_CURRENT_DESKTOP == 'X-Cinnamon' ] 
+then 
+    gsettings set org.cinnamon.desktop.screensaver default-message "$rnd_quote" 
+else
+    # TODO: Add support to other desktop envierments
+    echo 'Unsupported desktop environment.'
+fi
+
